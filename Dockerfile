@@ -1,4 +1,4 @@
-FROM mongo:latest
+FROM mongo
 MAINTAINER douglasralmeida <douglasralmeida@live.com>
 
 RUN db.createCollecatoin('kb')

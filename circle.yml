@@ -1,0 +1,20 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build -t douglasralmeida/search.bhsul .
+
+test: 
+  override:
+    - docker run -d --name searchbhsul douglasralmeida/search.bhsul; sleep 10
+    - docker logs searchbhsul
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -e douglasralmeida@live.com -u douglasralmeida -p $DOCKER_PASS
+      - docker push douglasralmeida/search.bhsul

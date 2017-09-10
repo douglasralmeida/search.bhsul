@@ -7,6 +7,7 @@ RUN apk --no-cache add nodejs-npm
 RUN npm install pm2 -g
 
 # Cria o diretorio do app
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Adiciona o pacote do app

@@ -11,13 +11,13 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Adiciona o pacote do app
-COPY package.json /usr/src/app
+COPY package.json pm.json /usr/src/app/
 
 # Instala as dependencias do app
 RUN npm install
 
 # Copia o app
-COPY db.js dbconnect.js server.js /usr/src/app
+COPY db.js dbconnect.js server.js /usr/src/app/
 RUN mongod db.js
 
 # Porta

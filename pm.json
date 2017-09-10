@@ -1,0 +1,9 @@
+{
+    "apps": [{
+      "name": "search.bhsul",
+      "script": "server.js",
+      "env": {
+        "production": true
+      }
+    }]
+}

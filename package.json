@@ -1,0 +1,22 @@
+{
+  "name": "search.bhsul Node App",
+  "version": "1.0.0",
+  "description": "Servidor de Pesquisas da BH Sul",
+  "author": "Douglas R.Almeida <douglasralmeida@live.com>",
+  "license" : "NLPL",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/douglasralmeida/search.bhsul.git"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": ">=4.14.0", 
+    "body-parser": ">=1.18.0",
+    "cors": ">=2.8.0",
+    "mongodb": ">=2.2.31"
+	},
+  "devDependencies": {  }
+}

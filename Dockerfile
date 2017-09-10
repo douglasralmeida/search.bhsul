@@ -1,9 +1,9 @@
 FROM alpine:3.6
 MAINTAINER douglasralmeida <douglasralmeida@live.com>
 
-# Instal o servidor
+# Instala os servidores
 RUN apk --no-cache add mongodb
-RUN apk --no-cache add node
+RUN apk --no-cache add nodejs
 
 # Cria o diretorio do app
 WORKDIR /usr/src/app

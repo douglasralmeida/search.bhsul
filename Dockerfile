@@ -16,7 +16,7 @@ COPY package.json /usr/src/app
 RUN npm install
 
 # Copia o app
-COPY db.js dbconnect.js server.js
+COPY db.js dbconnect.js server.js /usr/src/app
 RUN mongod db.js
 
 # Porta

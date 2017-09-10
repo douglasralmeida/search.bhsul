@@ -1,13 +1,9 @@
-FROM node
+FROM alpine:3.6
 MAINTAINER douglasralmeida <douglasralmeida@live.com>
 
-# Atualiza e instala o MongoDB
-RUN apt-get update \
-  && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927 \
-  && echo "deb http://repo.mongodb.org/apt/debian/dists/wheezy/mongodb-org/3.5/main" | tee /etc/apt/sources.list.d/mongodb-org-3.5.list \
-  && apt-get update \
-  && apt-get install -y mongodb-org \
-  && npm install -g pm2
+# Instal o servidor
+RUN apk --no-cache add mongodb
+RUN apk --no-cache add node
 
 # Cria o diretorio do app
 WORKDIR /usr/src/app
@@ -26,4 +22,4 @@ EXPOSE 5055
 
 # Iniciar a aplicação ao iniciar o container
 CMD [ "mongod", "db.js" ]
-CMD [ "npm", "start" ]
+CMD [ "pm2", "start server.js" ]

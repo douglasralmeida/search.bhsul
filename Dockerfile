@@ -21,7 +21,7 @@ RUN npm install
 COPY db.js dbconnect.js server.js /usr/src/app/
 
 #Executa o servidor de banco de dados
-RUN mongod
+RUN mongod --fork
 RUN mongo db.js
 
 # Porta

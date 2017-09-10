@@ -18,7 +18,10 @@ RUN npm install
 
 # Copia o app
 COPY db.js dbconnect.js server.js /usr/src/app/
-RUN mongod db.js
+
+#Executa o servidor de banco de dados
+RUN mongod
+RUN mongo db.js
 
 # Porta
 EXPOSE 5055

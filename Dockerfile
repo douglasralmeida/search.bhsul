@@ -3,7 +3,7 @@ MAINTAINER douglasralmeida <douglasralmeida@live.com>
 
 # Instala os servidores
 RUN apk --no-cache add mongodb
-RUN apk --no-cache add nodejs
+RUN apk --no-cache add nodejs-npm
 RUN npm install pm2 -g
 
 # Cria o diretorio do app

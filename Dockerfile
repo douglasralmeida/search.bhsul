@@ -1,13 +1,11 @@
 FROM alpine:3.6
 MAINTAINER douglasralmeida <douglasralmeida@live.com>
 
-# Instala os servidores
-RUN apk --no-cache add mongodb
+# Instala o Node.Js
 RUN apk --no-cache add nodejs-npm
 RUN npm install pm2 -g
 
 # Cria o diretorio do app
-VOLUME /data/db
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
@@ -18,11 +16,7 @@ COPY package.json pm.json /usr/src/app/
 RUN npm install
 
 # Copia o app
-COPY db.js dbconnect.js server.js /usr/src/app/
-
-#Executa o servidor de banco de dados
-RUN mongod --fork --syslog
-RUN mongo db.js
+COPY db.js db.js server.js /usr/src/app/
 
 # Porta
 EXPOSE 5055
